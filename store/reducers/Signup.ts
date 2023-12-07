@@ -26,11 +26,19 @@ export const RegisterUserFunc = createAsyncThunk("Signup/initialize",
         try {
             const response = await axios(SignupData)
             if(response.status === 201){
-                localStorage.setItem(
-                    "bookmeLoginToken",
-                    JSON.stringify(response?.data?.user)
-                );
-                router.push("/admin");
+                if(response?.data?.user?.type === "admin"){
+                    localStorage.setItem(
+                        "bookmeLoginToken",
+                        JSON.stringify(response?.data?.user)
+                    );
+                    router.push("/");
+                }else if(response?.data?.user?.type === "normal"){
+                    localStorage.setItem(
+                        "bookmeLoginToken",
+                        JSON.stringify(response?.data?.user)
+                    );
+                    router.push("/app");
+                }
                 Snakebar.success(response.data.message)
             }
             // console.log(response)

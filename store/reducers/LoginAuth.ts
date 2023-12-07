@@ -26,12 +26,11 @@ export const LoginAuthFunc = createAsyncThunk("LoginAuth/initialize",
             const response = await axios(loginData)
             if(response.status === 200){
                 if(response?.data?.user?.type === "admin"){
-                    router.push("/admin");
                     localStorage.setItem(
                         "bookmeLoginToken",
                         JSON.stringify(response?.data?.user)
                     );
-                    router.push("/admin");
+                    router.push("/");
                 }else if(response?.data?.user?.type === "normal"){
                     localStorage.setItem(
                         "bookmeLoginToken",

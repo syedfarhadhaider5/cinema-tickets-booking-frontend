@@ -21,7 +21,6 @@ import Container from '@mui/material/Container';
 
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter()
-    const theme = useTheme();
     const [toggleValue, setToggleValue] = useState(false);
     const [userLogin, setUserLogin] = React.useState<any>();
 

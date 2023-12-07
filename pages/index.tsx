@@ -13,6 +13,7 @@ import Container from '@mui/material/Container';
 import * as React from "react";
 import {useRouter} from "next/router";
 import {useEffect} from "react";
+import AdminDashboard from "@/pages/components/AdminDashboard";
 
 export default function Home() {
 
@@ -25,73 +26,15 @@ export default function Home() {
       setUserLogin(JSON.parse(LoginTokenAvailable));
     }
     if(userLogin?.type === "normal"){
-      router.push('/404')
+      router.push('/app')
+    }else{
+      router.push('/')
     }
   }, [LoginTokenAvailable,router,userLogin]);
 
   return (
     <>
-        {/*<Container>*/}
-        {/*    <br/><br/><br/>*/}
-        {/*    <Grid container spacing={2}>*/}
-        {/*        <Grid item xs={12} sm={6} md={4} lg={4}>*/}
-        {/*            /!* Content for the first column *!/*/}
-        {/*            /!* You can place your component/content here *!/*/}
-        {/*            <Box*/}
-        {/*                sx={{*/}
-        {/*                    display: 'flex',*/}
-        {/*                    flexWrap: 'wrap',*/}
-        {/*                    backgroundColor: '#ffffff',*/}
-        {/*                    '& > :not(style)': {*/}
-        {/*                        m: 1,*/}
-        {/*                        width: 128,*/}
-        {/*                        height: 128,*/}
-        {/*                    },*/}
-        {/*                }}*/}
-        {/*            >*/}
-        {/*                <Paper elevation={3} />*/}
-        {/*            </Box>*/}
-        {/*        </Grid>*/}
-        {/*        <Grid item xs={12} sm={6} md={4} lg={4}>*/}
-        {/*            /!* Content for the second column *!/*/}
-        {/*            /!* You can place your component/content here *!/*/}
-        {/*            <Box*/}
-        {/*                sx={{*/}
-        {/*                    display: 'flex',*/}
-        {/*                    flexWrap: 'wrap',*/}
-        {/*                    '& > :not(style)': {*/}
-        {/*                        m: 1,*/}
-        {/*                        width: 128,*/}
-        {/*                        height: 128,*/}
-        {/*                    },*/}
-        {/*                    backgroundColor: '#ffffff',*/}
-
-        {/*                }}*/}
-        {/*            >*/}
-        {/*                <Paper elevation={3} />*/}
-        {/*            </Box>*/}
-        {/*        </Grid>*/}
-        {/*        <Grid item xs={12} sm={6} md={4} lg={4}>*/}
-        {/*            /!* Content for the third column *!/*/}
-        {/*            /!* You can place your component/content here *!/*/}
-        {/*            <Box*/}
-        {/*                sx={{*/}
-        {/*                    display: 'flex',*/}
-        {/*                    flexWrap: 'wrap',*/}
-        {/*                    '& > :not(style)': {*/}
-        {/*                        m: 1,*/}
-        {/*                        width: 128,*/}
-        {/*                        height: 128,*/}
-        {/*                    },*/}
-        {/*                    backgroundColor: '#ffffff',*/}
-
-        {/*                }}*/}
-        {/*            >*/}
-        {/*                <Paper elevation={3} />*/}
-        {/*            </Box>*/}
-        {/*        </Grid>*/}
-        {/*    </Grid>*/}
-        {/*</Container>*/}
+      <AdminDashboard/>
     </>
   )
 }
